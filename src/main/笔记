@@ -1,0 +1,19 @@
+开发流程：
+（1）创建maven项目，项目骨架使用maven-archetype-quickstart
+（2）添加Mybatis-Spring依赖,依赖没导入可以右键项目名->Maven->Reimport
+（3）添加Spring依赖spring-webmvc
+（4）创建Spring的xml文件spring-config.xml(File->new->XML Configuration File->Spring Config)
+（5）配置spring-config.xml文件:
+     1)配置数据源,使用dbcp数据库连接池org.apache.commons.dbcp.BasicDataSource
+     2)配置数据库属性文件jdbc.properities (File->new->Resource Bundle)
+     3)导入mysql connector数据库驱动依赖
+（6）spring-config.xml文件中集成Mybatis
+     1)配置SqlSessionFactory
+     2)配置SqlSessionTemplate(可选项,配置SqlSessionTemplat之后SqlSessionFactory则不起作用)
+     3)使用自动扫描方式创建mapper bean
+（7）spring-config.xml文件中配置事务管理器
+    1)加入XML的事务命名空间
+    2)定义bean:transactionManager,添加属性dataSource数据源,需要引入spring jdbc依赖
+    3)配置注解驱动(声明式事务)
+（8）配置mybatis配置文件
+
